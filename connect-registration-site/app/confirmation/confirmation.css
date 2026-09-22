@@ -1,0 +1,132 @@
+/* Page Container */
+
+.confirmation-container {
+  min-height: 100vh;
+  background: #f4f7fb;
+  padding: 40px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ticket */
+
+.confirmation-card {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-logo {
+  display: block;
+  width: 64px;
+  margin: 0 auto 16px;
+}
+
+/* Heading */
+
+.success-title {
+  text-align: center;
+  color: #16a34a;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Sub Heading */
+
+.success-text {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Details */
+
+.details {
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.details p {
+  margin: 10px 0;
+  font-size: 15px;
+  color: #222;
+  line-height: 1.6;
+}
+
+.details strong {
+  color: #000;
+}
+
+/* Registration Code */
+
+.reg-code {
+  font-weight: bold;
+  color: #2563eb;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 10px;
+  margin-top: 12px !important;
+}
+
+/* QR Code */
+
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.qr-wrapper svg {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Download Button */
+
+.download-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.download-btn {
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 220px;
+}
+
+.download-btn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .confirmation-card {
+    padding: 22px;
+  }
+
+  .success-title {
+    font-size: 1.5rem;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}

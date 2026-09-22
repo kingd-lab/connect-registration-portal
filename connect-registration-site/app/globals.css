@@ -1,0 +1,55 @@
+.closed-container {
+  min-height: 100vh;
+  background: #f5f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.closed-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 650px;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.closed-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.retreat-text {
+  color: #16a34a;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.closed-title {
+  color: #dc2626;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.closed-message {
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.closed-line {
+  width: 80px;
+  height: 4px;
+  background: #16a34a;
+  margin: 25px auto;
+  border-radius: 10px;
+}
+
+.closed-footer {
+  color: #6b7280;
+  font-style: italic;
+}
