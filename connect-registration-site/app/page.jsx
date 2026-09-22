@@ -14,6 +14,7 @@ export default function HomePage() {
     email: "",
     gender: "",
     denomination: "",
+    otherDenomination: "",
     health: "",
     expectation: "",
   });
@@ -38,7 +39,9 @@ export default function HomePage() {
       !form.name.trim() ||
       !form.email.trim() ||
       !form.gender ||
-      !form.denomination.trim() ||
+      !form.denomination ||
+      (form.denomination === "Other" &&
+        !form.otherDenomination.trim()) ||
       !form.expectation.trim()
     ) {
       setError("Please complete all required fields.");
@@ -47,13 +50,25 @@ export default function HomePage() {
 
     setSubmitting(true);
 
+    const finalDenomination =
+      form.denomination === "Other"
+        ? form.otherDenomination.trim()
+        : form.denomination;
+
     try {
       const response = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          gender: form.gender,
+          denomination: finalDenomination,
+          health: form.health.trim(),
+          expectation: form.expectation.trim(),
+        }),
       });
 
       const result = await response.json();
@@ -77,7 +92,7 @@ export default function HomePage() {
         name: form.name,
         email: form.email,
         gender: form.gender,
-        denomination: form.denomination,
+        denomination: finalDenomination,
         health: form.health,
         expectation: form.expectation,
         code: registrationCode,
@@ -141,6 +156,7 @@ export default function HomePage() {
             />
 
             <div className="brand-text">
+
               <div className="brand-title">
                 WORD CONFERENCE 2026
               </div>
@@ -148,6 +164,7 @@ export default function HomePage() {
               <div className="brand-subtitle">
                 RCCG THE CONNECT
               </div>
+
             </div>
 
           </div>
@@ -160,10 +177,11 @@ export default function HomePage() {
       </header>
 
 
-      {/* MAIN */}
+      {/* MAIN REGISTRATION AREA */}
       <section className="register-container">
 
         <div className="register-card">
+
 
           {/* FLYER */}
           <div className="flyer-section">
@@ -180,7 +198,10 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="flyer-button"
             >
-              <span className="flyer-icon">▧</span>
+              <span className="flyer-icon">
+                ▧
+              </span>
+
               VIEW PROGRAM FLYER
             </a>
 
@@ -208,15 +229,18 @@ export default function HomePage() {
             onSubmit={handleSubmit}
           >
 
+
             {/* PERSONAL INFORMATION */}
             <div className="form-section-label">
               PERSONAL INFORMATION
             </div>
 
 
+            {/* NAME + EMAIL */}
             <div className="form-row">
 
               <div className="form-group">
+
                 <label htmlFor="name">
                   Full Name <span>*</span>
                 </label>
@@ -231,10 +255,12 @@ export default function HomePage() {
                   autoComplete="name"
                   required
                 />
+
               </div>
 
 
               <div className="form-group">
+
                 <label htmlFor="email">
                   Email Address <span>*</span>
                 </label>
@@ -249,14 +275,17 @@ export default function HomePage() {
                   autoComplete="email"
                   required
                 />
+
               </div>
 
             </div>
 
 
+            {/* GENDER + DENOMINATION */}
             <div className="form-row">
 
               <div className="form-group">
+
                 <label htmlFor="gender">
                   Gender <span>*</span>
                 </label>
@@ -268,6 +297,7 @@ export default function HomePage() {
                   onChange={handleChange}
                   required
                 >
+
                   <option value="">
                     Select gender
                   </option>
@@ -279,27 +309,82 @@ export default function HomePage() {
                   <option value="Female">
                     Female
                   </option>
+
                 </select>
+
               </div>
 
 
               <div className="form-group">
+
                 <label htmlFor="denomination">
-                  Denomination / Parish <span>*</span>
+                  Denomination / Church <span>*</span>
                 </label>
 
-                <input
+                <select
                   id="denomination"
                   name="denomination"
-                  type="text"
                   value={form.denomination}
                   onChange={handleChange}
-                  placeholder="Enter denomination or parish"
                   required
-                />
+                >
+
+                  <option value="">
+                    Select your church / denomination
+                  </option>
+
+                  <option value="RCCG">
+                    RCCG — Redeemed Christian Church of God
+                  </option>
+
+                  <option value="Living Faith Church">
+                    Living Faith Church (Winners Chapel)
+                  </option>
+
+                  <option value="Deeper Life Bible Church">
+                    Deeper Life Bible Church
+                  </option>
+
+                  <option value="Christ Embassy">
+                    Christ Embassy
+                  </option>
+
+                  <option value="MFM">
+                    Mountain of Fire and Miracles Ministries (MFM)
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
               </div>
 
             </div>
+
+
+            {/* OTHER CHURCH FIELD */}
+            {form.denomination === "Other" && (
+              <div className="form-group">
+
+                <label htmlFor="otherDenomination">
+                  Please specify your church / denomination{" "}
+                  <span>*</span>
+                </label>
+
+                <input
+                  id="otherDenomination"
+                  name="otherDenomination"
+                  type="text"
+                  value={form.otherDenomination}
+                  onChange={handleChange}
+                  placeholder="Enter your church or denomination"
+                  required
+                />
+
+              </div>
+            )}
 
 
             {/* ADDITIONAL INFORMATION */}
@@ -308,6 +393,7 @@ export default function HomePage() {
             </div>
 
 
+            {/* HEALTH */}
             <div className="form-group">
 
               <label htmlFor="health">
@@ -327,6 +413,7 @@ export default function HomePage() {
             </div>
 
 
+            {/* EXPECTATION */}
             <div className="form-group">
 
               <label htmlFor="expectation">
@@ -354,7 +441,7 @@ export default function HomePage() {
             )}
 
 
-            {/* BUTTON */}
+            {/* SUBMIT */}
             <button
               type="submit"
               className="register-btn"
