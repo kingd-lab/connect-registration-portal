@@ -13,6 +13,9 @@ export default function TransportationSection() {
           Join the Word Conference Transportation group 2026 on WhatsApp
           for pickup locations, departure times, and transport arrangements.
         </p>
+        <p className="transportation-description">
+          <strong>Transportation locations:</strong> Lusada, Agbara, and Badagry.
+        </p>
         <a
           href={TRANSPORTATION_GROUP_URL}
           target="_blank"
