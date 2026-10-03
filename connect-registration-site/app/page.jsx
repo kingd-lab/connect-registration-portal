@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import TransportationSection from "./TransportationSection";
 import "./register.css";
 
 const REGISTRATION_OPEN = true;
@@ -453,6 +454,8 @@ export default function HomePage() {
             </button>
 
           </form>
+
+          <TransportationSection />
 
 
           {/* FOOTER */}

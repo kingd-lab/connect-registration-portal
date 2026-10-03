@@ -24,3 +24,9 @@ Next.js app for registering attendees for the Ministers and Workers Retreat 2026
   details, and a "Download Ticket" button that saves the ticket as a PNG.
 
 To close registration again, set `REGISTRATION_OPEN = false` in `app/page.jsx`.
+
+## Transportation
+
+The transportation section below the registration form includes a WhatsApp
+group link and a scannable QR code. Change `TRANSPORTATION_GROUP_URL` in
+`app/TransportationSection.jsx` if the group invitation changes.
