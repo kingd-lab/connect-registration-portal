@@ -1,4 +1,5 @@
 import QRCode from "react-qr-code";
+import Link from "next/link";
 
 const TRANSPORTATION_GROUP_URL =
   "https://chat.whatsapp.com/KBaT0KcHHvb3xEt1Vppugy";
@@ -15,6 +16,12 @@ export default function TransportationSection() {
         </p>
         <p className="transportation-description">
           <strong>Transportation locations:</strong> Lusada, Agbara, and Badagry.
+        </p>
+        <Link href="/transportation" className="transportation-link">
+          Register for transportation
+        </Link>
+        <p className="transportation-description" style={{ marginTop: "12px" }}>
+          Save your name and preferred location, then share your request in the group.
         </p>
         <a
           href={TRANSPORTATION_GROUP_URL}
