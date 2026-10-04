@@ -1,4 +1,4 @@
-const LOCATIONS = ["Lusada", "Agbara", "Badagry"];
+const LOCATIONS = ["Lusada", "Agbara", "Ijanikin"];
 
 export async function POST(request) {
   let data;

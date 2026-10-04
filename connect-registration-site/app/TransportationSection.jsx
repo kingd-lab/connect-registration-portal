@@ -15,7 +15,7 @@ export default function TransportationSection() {
           for pickup locations, departure times, and transport arrangements.
         </p>
         <p className="transportation-description">
-          <strong>Transportation locations:</strong> Lusada, Agbara, and Badagry.
+          <strong>Transportation locations:</strong> Lusada, Agbara, and Ijanikin.
         </p>
         <Link href="/transportation" className="transportation-link">
           Register for transportation

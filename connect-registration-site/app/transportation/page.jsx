@@ -5,7 +5,7 @@ import Link from "next/link";
 import "./transportation.css";
 
 const GROUP_URL = "https://chat.whatsapp.com/KBaT0KcHHvb3xEt1Vppugy";
-const LOCATIONS = ["Lusada", "Agbara", "Badagry"];
+const LOCATIONS = ["Lusada", "Agbara", "Ijanikin"];
 
 export default function TransportationPage() {
   const [form, setForm] = useState({ name: "", code: "", location: "" });
@@ -55,7 +55,7 @@ export default function TransportationPage() {
       </header>
 
       <section className="transport-card" aria-labelledby="transport-heading">
-        <p className="transport-eyebrow">LUSADA · AGBARA · BADAGRY</p>
+        <p className="transport-eyebrow">LUSADA · AGBARA · IJANIKIN</p>
         <h1 id="transport-heading">Conference transportation</h1>
         {saved ? (
           <div aria-live="polite">
