@@ -1,4 +1,5 @@
 export const runtime = "nodejs";
+export const maxDuration = 60;
 
 export async function POST(request) {
   let body;
@@ -31,7 +32,7 @@ export async function POST(request) {
       body: JSON.stringify({ action: "worldConferenceRegister", name, phone, secret }),
       redirect: "follow",
       cache: "no-store",
-      signal: AbortSignal.timeout(25000)
+      signal: AbortSignal.timeout(55000)
     });
 
     const raw = await upstream.text();
