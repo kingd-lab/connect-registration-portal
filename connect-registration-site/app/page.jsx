@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import TransportationSection from "./TransportationSection";
 import "./register.css";
 
-const REGISTRATION_OPEN = true;
+const REGISTRATION_OPEN = false;
 
 export default function HomePage() {
   const router = useRouter();
